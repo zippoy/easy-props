@@ -21,7 +21,26 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import java.math.BigDecimal;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * BigDecimal type converter.
+ * Does not accept {@code null} or empty strings.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class BigDecimalTypeConverter implements TypeConverter<String, BigDecimal> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public BigDecimal convert(final String value) {
+        return new BigDecimal(value);
+    }
+
+}

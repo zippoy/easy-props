@@ -21,7 +21,37 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * {@link java.util.Calendar} type converter.
+ *
+ * Used to convert a raw String into a Gregorian Calendar instance.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class GregorianCalendarTypeConverter implements TypeConverter<String, GregorianCalendar> {
+
+    private DateTypeConverter dateTypeConverter;
+
+    public GregorianCalendarTypeConverter() {
+        this.dateTypeConverter = new DateTypeConverter();
+    }
+
+    public GregorianCalendarTypeConverter(String dateFormat) {
+        this.dateTypeConverter = new DateTypeConverter(dateFormat);
+    }
+
+    @Override
+    public GregorianCalendar convert(String value) {
+        Date date = dateTypeConverter.convert(value);
+        GregorianCalendar gregorianCalendar = new GregorianCalendar();
+        gregorianCalendar.setTime(date);
+        return gregorianCalendar;
+    }
+}

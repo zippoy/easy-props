@@ -21,7 +21,24 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * Long type converter.
+ * Does not accept {@code null} or empty strings.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class LongTypeConverter implements TypeConverter<String, Long> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Long convert(final String value) {
+        return Double.valueOf(value).longValue();
+    }
+
+}

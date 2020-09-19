@@ -21,7 +21,26 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import java.sql.Date;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * java.sql.Date type converter.
+ * Converts a String date in the "yyyy-mm-dd" format to a {@link Date} type.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class SqlDateTypeConverter implements TypeConverter<String, Date> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Date convert(final String value) {
+        return Date.valueOf(value);
+    }
+
+}

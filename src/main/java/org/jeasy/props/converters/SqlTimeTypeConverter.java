@@ -21,7 +21,26 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import java.sql.Time;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * java.sql.Time type converter.
+ * Converts a String Time in the "hh:mm:ss" format to a {@link Time} type.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class SqlTimeTypeConverter implements TypeConverter<String, Time> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Time convert(final String value) {
+        return Time.valueOf(value);
+    }
+
+}

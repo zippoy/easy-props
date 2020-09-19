@@ -21,7 +21,23 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * {@link LocalDate} type converter.
+ * Converts a String date in the {@link DateTimeFormatter#ISO_LOCAL_DATE} format to a {@link LocalDate} type.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class LocalDateConverter implements TypeConverter<String, LocalDate> {
+
+	@Override
+	public LocalDate convert(String value) {
+		return LocalDate.parse(value);
+	}
+}

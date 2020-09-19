@@ -21,7 +21,24 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * Boolean type converter : converts "true" , "1", "yes" and "on" (ignoring case) to the boolean true value.
+ * Any other value will be converted to false.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class BooleanTypeConverter implements TypeConverter<String, Boolean> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Boolean convert(final String value) {
+        return Boolean.parseBoolean(value) || "1".equals(value) || "on".equalsIgnoreCase(value) || "yes".equalsIgnoreCase(value);
+    }
+
+}

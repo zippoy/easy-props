@@ -21,7 +21,25 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * Character type converter.
+ * Picks the first character of a string.
+ * Does not accept {@code null} or empty strings.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class CharacterTypeConverter implements TypeConverter<String, Character> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Character convert(final String value) {
+        return value.charAt(0);
+    }
+
+}

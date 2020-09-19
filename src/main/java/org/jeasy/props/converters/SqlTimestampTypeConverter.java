@@ -21,7 +21,26 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import java.sql.Timestamp;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * java.sql.Timestamp type converter.
+ * Converts a String Timestamp in the "yyyy-mm-dd hh:mm:ss[.f...]" format to a {@link Timestamp} type.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class SqlTimestampTypeConverter implements TypeConverter<String, Timestamp> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Timestamp convert(final String value) {
+        return Timestamp.valueOf(value);
+    }
+
+}

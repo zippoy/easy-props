@@ -21,7 +21,26 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import java.util.concurrent.atomic.AtomicLong;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * AtomicLong type converter.
+ * Does not accept {@code null} or empty strings.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class AtomicLongTypeConverter implements TypeConverter<String, AtomicLong> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public AtomicLong convert(final String value) {
+        return new AtomicLong(Long.parseLong(value));
+    }
+
+}

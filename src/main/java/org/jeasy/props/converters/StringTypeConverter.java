@@ -21,7 +21,23 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  */
-/**
- * This package contains built-in type converters.
- */
 package org.jeasy.props.converters;
+
+import org.jeasy.props.api.TypeConverter;
+
+/**
+ * String type converter.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
+public class StringTypeConverter implements TypeConverter<String, String> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String convert(final String value) {
+        return value;
+    }
+
+}
